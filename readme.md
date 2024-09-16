@@ -23,6 +23,8 @@ This is a simple Python REST API service that  manages customers and orders. It 
 ## Prerequisites
 
 - Python 3.9 or higher
+- PostgreSQL
+- Pipenv (for managing virtual environments)
 - Docker and Docker Compose
 - An Google OpenID Connect provider account
 - An Africa's Talking account for SMS functionality
@@ -33,6 +35,7 @@ This is a simple Python REST API service that  manages customers and orders. It 
    ```
    git clone https://github.com/peterowira/customer-order-service.git
    cd customer-order-service
+   pipenv install
    ```
 
 2. Create a `.env` file in the project root and add the following environment variables:
@@ -51,19 +54,15 @@ This is a simple Python REST API service that  manages customers and orders. It 
    DB_PORT=db_port_number
    ```
 
-3. Build and run the Docker containers:
+
+3. Apply database migrations:
    ```
-   docker-compose up --build
+   pipenv run python manage.py migrate
    ```
 
-4. Apply database migrations:
+4. Run the API service:
    ```
-   docker-compose exec web python manage.py migrate
-   ```
-
-5. Create a superuser:
-   ```
-   docker-compose exec web python manage.py createsuperuser
+   pipenv run python manage.py runserver
    ```
 
 ## Usage
@@ -87,23 +86,20 @@ To authenticate use this endpoint: `http://localhost:8000/oidc/authenticate/`
 
 
 
-```
-Authorization: Bearer your_access_token
-```
-
 ## Running Tests
 
 To run the test suite:
 
 ```
 python manage.py test
+
 ```
 
 To run tests with coverage:
 
 ```
-coverage run manage.py test
-coverage report
+pipenv run coverage run manage.py test
+pipenv run coverage report
 ```
 
 

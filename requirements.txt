@@ -1,0 +1,9 @@
+Django
+djangorestframework
+psycopg2-binary
+mozilla-django-oidc
+africastalking
+gunicorn
+django-debug-toolbar
+coverage
+drf-yasg

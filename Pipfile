@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+psycopg2-binary = "*"
+mozilla-django-oidc = "*"
+africastalking = "*"
+gunicorn = "*"
+django-debug-toolbar = "*"
+coverage = "*"
+drf-yasg = "*"
+python-dotenv = "*"
+
+[dev-packages]
+pytest = "*"
+pytest-cov = "*"
+
+[requires]
+python_version = "3.10"

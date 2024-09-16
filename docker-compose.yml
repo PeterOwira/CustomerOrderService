@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DEBUG=False
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - DB_NAME=customer_order_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres_password
+      - DB_HOST=db
+      - DB_PORT=5432
+      - OIDC_RP_CLIENT_ID=your_client_id
+      - OIDC_RP_CLIENT_SECRET=your_client_secret
+      - OIDC_OP_AUTHORIZATION_ENDPOINT=https://your-oidc-provider.com/authorize
+      - OIDC_OP_TOKEN_ENDPOINT=https://your-oidc-provider.com/token
+      - OIDC_OP_USER_ENDPOINT=https://your-oidc-provider.com/userinfo
+      - AT_USERNAME=your_africastalking_username
+      - AT_API_KEY=your_africastalking_api_key
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=customer_order_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

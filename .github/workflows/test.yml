@@ -38,7 +38,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run tests
       run: |
-       coverage run manage.py test
+       coverage run manage.py test --keepdb=False
     - name: Show test coverage
       run: |
        coverage report

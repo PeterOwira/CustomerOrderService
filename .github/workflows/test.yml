@@ -22,8 +22,6 @@ jobs:
           DB_PASSWORD: password123
           DB_HOST: db
           DB_PORT: 5432
-          AT_API_KEY: atsk_6a7041873a97551dabb571229474f75a18b2c03705884dfe61a605e8f83138df818a0f02
-          AT_USERNAME: sandbox
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5

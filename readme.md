@@ -8,8 +8,7 @@ This is a simple Python REST API service that  manages customers and orders. It 
 - Order management (create, read, update, delete)
 - Authentication using Google OpenID Connect
 - SMS notifications for new orders using Africa's Talking SMS gateway
-- Containerized application using Docker
-- Automated testing and deployment using GitHub Actions
+- Automated testing using GitHub Actions
 
 ## Tech Stack
 
@@ -31,12 +30,25 @@ This is a simple Python REST API service that  manages customers and orders. It 
 
 1. Clone the repository:
    ```
-   git clone https://github.com/peterowira/customer-order-service.git
+   git clone https://github.com/PeterOwira/CustomerOrderService.git
    cd customer-order-service
-   pipenv install
+   pip install -r requirements.txt
    ```
 
-2. Create a `.env` file in the project root and add the following environment variables:
+2. Setup the PostgreSQL Database
+
+   ```
+   psql -U postgres
+   CREATE DATABASE customer_orders_db;
+   CREATE USER customer_orders_user WITH PASSWORD 'your_password';
+   ALTER ROLE customer_orders_user SET client_encoding TO 'utf8';
+   ALTER ROLE customer_orders_user SET default_transaction_isolation TO 'read committed';
+   ALTER ROLE customer_orders_user SET timezone TO 'UTC';
+   GRANT ALL PRIVILEGES ON DATABASE customer_orders_db TO customer_orders_user;
+   \q
+   ```
+
+3. Create a `.env` file in the project root and add the following environment variables:
    ```
    AT_API_KEY=your_africastalking_api_key
    AT_USERNAME=your_africastalking_username
@@ -53,14 +65,14 @@ This is a simple Python REST API service that  manages customers and orders. It 
    ```
 
 
-3. Apply database migrations:
+4. Apply database migrations:
    ```
-   pipenv run python manage.py migrate
+   python manage.py migrate
    ```
 
-4. Run the API service:
+5. Run the API service:
    ```
-   pipenv run python manage.py runserver
+   python manage.py runserver
    ```
 
 ## Usage
@@ -96,8 +108,8 @@ python manage.py test
 To run tests with coverage:
 
 ```
-pipenv run coverage run manage.py test
-pipenv run coverage report
+coverage run manage.py test
+coverage report
 ```
 
 

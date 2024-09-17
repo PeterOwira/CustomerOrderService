@@ -11,7 +11,6 @@ from .utils import send_sms
 from mozilla_django_oidc.utils import import_from_settings
 from django.contrib.auth import logout
 from django.shortcuts import redirect
-import time
 
 
 @api_view(['GET'])

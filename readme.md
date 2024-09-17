@@ -17,7 +17,6 @@ This is a simple Python REST API service that  manages customers and orders. It 
 - Django 
 - Django REST Framework
 - PostgreSQL
-- Docker
 - GitHub Actions
 
 ## Prerequisites
@@ -25,7 +24,6 @@ This is a simple Python REST API service that  manages customers and orders. It 
 - Python 3.9 or higher
 - PostgreSQL
 - Pipenv (for managing virtual environments)
-- Docker and Docker Compose
 - An Google OpenID Connect provider account
 - An Africa's Talking account for SMS functionality
 

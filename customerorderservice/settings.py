@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-iwi%onou%kxya)^i$=lxw-ixa$-7l44ci^1&c1_%u6k4512!7k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'orders',
     'mozilla_django_oidc',
-    "debug_toolbar",
     'drf_yasg',
 ]
 
@@ -57,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'mozilla_django_oidc.middleware.SessionRefresh',
-    "debug_toolbar.middleware.DebugToolbarMiddleware"
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'customerorderservice.urls'
@@ -189,5 +188,7 @@ SWAGGER_SETTINGS = {
       }
    }
 }
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 

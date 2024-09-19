@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-echo "Installing dependencies..."
-pip install -r requirements.txt
+# echo "Installing dependencies..."
+# pip install -r requirements.txt
 
 echo "Running collectstatic..."
 python manage.py collectstatic --noinput
@@ -13,3 +13,5 @@ python manage.py makemigrations
 python manage.py migrate
 
 echo "Build, Database migrations and static collection completed successfully."
+
+gunicorn customerorderservice.wsgi --log-file -

@@ -9,6 +9,7 @@ python manage.py collectstatic --noinput
 
 
 echo "Running Database migrations"
+python manage.py makemigrations
 python manage.py migrate
 
 echo "Build, Database migrations and static collection completed successfully."

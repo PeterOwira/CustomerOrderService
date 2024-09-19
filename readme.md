@@ -2,6 +2,9 @@
 
 This is a simple Python REST API service that  manages customers and orders. It includes authentication via OpenID Connect and sends SMS notifications to customers when new orders are created.
 
+# Deployed Service
+To access the demo deployed API Service use this url: `https://customerorderservice.onrender.com`
+
 ## Features
 
 - Customer management (create, read, update, delete)
@@ -43,7 +46,6 @@ This is a simple Python REST API service that  manages customers and orders. It 
    CREATE USER customer_orders_user WITH PASSWORD 'your_password';
    ALTER ROLE customer_orders_user SET client_encoding TO 'utf8';
    ALTER ROLE customer_orders_user SET default_transaction_isolation TO 'read committed';
-   ALTER ROLE customer_orders_user SET timezone TO 'UTC';
    GRANT ALL PRIVILEGES ON DATABASE customer_orders_db TO customer_orders_user;
    \q
    ```
@@ -67,6 +69,7 @@ This is a simple Python REST API service that  manages customers and orders. It 
 
 4. Apply database migrations:
    ```
+   python manage.py makemigrations
    python manage.py migrate
    ```
 
@@ -74,6 +77,8 @@ This is a simple Python REST API service that  manages customers and orders. It 
    ```
    python manage.py runserver
    ```
+
+   NB: For debugging purposes in the settings.py file change the 'DEBUG' variable to True.
 
 ## Usage
 

@@ -94,7 +94,7 @@ You can use tools like curl, Postman, or a web browser using swagger to interact
 
 ## Authentication
 
-This service uses Google OpenID Connect for authentication.To access protected endpoints, you need to include valid cookis in the Authorization header of your requests:
+This service uses Google OpenID Connect for authentication.To access protected endpoints, you need to include valid cookies such as the Session ID and CRSF Token in the Authorization header of your requests:
 
 To authenticate use this endpoint: `http://localhost:8000/oidc/authenticate/`
 

@@ -80,19 +80,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'customerorderservice.wsgi.application'
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'customer_orders_db',
-#         'USER': 'peterowira',
-#         'PASSWORD': 'peterowira@123',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
-
-
 
 DATABASES = {
     'default': {
